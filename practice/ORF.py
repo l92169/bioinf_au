@@ -82,7 +82,7 @@ def find_all_starts(seq, START):
         return tuple(starts)
 
 
-def orf_finger(seq, starts, stops):
+def orf_finder(seq, starts, stops):
     for i in range(len(seq) - 2):
         if seq[i:i + 3] in starts:
             start = i
@@ -96,7 +96,7 @@ def find_all_orfs(seq, starts, stops):
     orfs = []
     i = 0
     while i < len(seq):
-        orf = orf_finger(seq[i:], starts, stops)
+        orf = orf_finder(seq[i:], starts, stops)
         if orf[0] == -1:
             return orfs
         else:
